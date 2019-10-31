@@ -13,6 +13,7 @@
 		EE0417DC235229040011D305 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE0417DB235229040011D305 /* Assets.xcassets */; };
 		EE0417DF235229040011D305 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE0417DD235229040011D305 /* LaunchScreen.storyboard */; };
 		EE3E7F852358CF8800C85FA2 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3E7F842358CF8800C85FA2 /* CalendarCell.swift */; };
+		EE40D35D2368A9ED002F9AE8 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE40D35C2368A9ED002F9AE8 /* DateManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		EE0417DE235229040011D305 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE0417E0235229040011D305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE3E7F842358CF8800C85FA2 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		EE40D35C2368A9ED002F9AE8 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				EE0417D4235229010011D305 /* AppDelegate.swift */,
 				EE0417D6235229010011D305 /* ViewController.swift */,
+				EE40D35C2368A9ED002F9AE8 /* DateManager.swift */,
 				EE3E7F842358CF8800C85FA2 /* CalendarCell.swift */,
 				EE0417D8235229010011D305 /* Main.storyboard */,
 				EE0417DB235229040011D305 /* Assets.xcassets */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE0417D7235229010011D305 /* ViewController.swift in Sources */,
+				EE40D35D2368A9ED002F9AE8 /* DateManager.swift in Sources */,
 				EE3E7F852358CF8800C85FA2 /* CalendarCell.swift in Sources */,
 				EE0417D5235229010011D305 /* AppDelegate.swift in Sources */,
 			);
