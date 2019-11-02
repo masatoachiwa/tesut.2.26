@@ -26,17 +26,24 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ug-6H-80e">
-                                <rect key="frame" x="332" y="77" width="31" height="30"/>
+                                <rect key="frame" x="336" y="69" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="翌月"/>
+                                <connections>
+                                    <action selector="nextMonth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ASN-Vf-W7I"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="89o-g8-Xpm">
                                 <rect key="frame" x="36" y="69" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="前月"/>
+                                <connections>
+                                    <action selector="backMonth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sgh-Qk-P3U"/>
+                                </connections>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="U0D-pJ-7Qb">
-                                <rect key="frame" x="39" y="175" width="336" height="640"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="U0D-pJ-7Qb">
+                                <rect key="frame" x="0.0" y="189" width="414" height="640"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="0.0" id="xwR-zP-pmL">
                                     <size key="itemSize" width="50" height="50"/>
@@ -61,16 +68,13 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="U0D-pJ-7Qb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Nhf-vN-hiz"/>
-                            <constraint firstItem="U0D-pJ-7Qb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="jaM-3D-2Tr"/>
-                            <constraint firstItem="U0D-pJ-7Qb" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="nKl-HZ-n7L"/>
-                            <constraint firstItem="U0D-pJ-7Qb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="seK-l6-bwR"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="89o-g8-Xpm" id="H2N-gU-QV3"/>
                         <outlet property="collectionView" destination="U0D-pJ-7Qb" id="xKg-td-0si"/>
+                        <outlet property="headTitle" destination="af0-VD-WJz" id="qyl-D6-XiU"/>
+                        <outlet property="nextButton" destination="6Ug-6H-80e" id="eva-mb-CEb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

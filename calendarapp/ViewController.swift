@@ -11,9 +11,13 @@ import UIKit
 class ViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout  {
       
         
-      
+        @IBOutlet var headTitle: UILabel!
         
-
+        @IBOutlet var nextButton: UIButton!
+        
+        @IBOutlet var backButton: UIButton!
+        
+        
         
         @IBOutlet var collectionView: UICollectionView!
         let weekArray = ["日","月","火","水","木","金","土",]
@@ -23,6 +27,17 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         override func viewDidLoad() {
                 super.viewDidLoad()
             
+                
+
+                headTitle.text = dateManager.CalendarHeader()  //追加
+                
+                
+                
+                
+                
+                
+                
+                
                 // レイアウトを調整
                 let layout = UICollectionViewFlowLayout() //UICollectionVIewLayoutの調整。Cellの大きさを動的な変更ができない
             
@@ -113,6 +128,33 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
                 return 2
         }
 
+        
+
+        @IBAction func backMonth(_ sender: Any) {
+                dateManager.preMonthCalendar()
+                collectionView.reloadData()
+                headTitle.text = dateManager.CalendarHeader()
+        
+        
+        
+        }
+        
+        
+        @IBAction func nextMonth(_ sender: Any) {
+                dateManager.nextMonthCalendar()
+                collectionView.reloadData()
+                headTitle.text = dateManager.CalendarHeader()
+        
+        
+        
+        }
+        
+        
+        
+        
+        
+        
+        
 }
 
 
