@@ -25,17 +25,7 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
                         month = newDate.month!
                 }
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
         
         
         
@@ -72,10 +62,10 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
                 //コレクションビューから識別子「CalendarCell」のセルを取得する/
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CalendarCell
                 if(indexPath.section == 0){             //曜日表示
-                        cell.backgroundColor = UIColor.green
+                        cell.backgroundColor = UIColor.white
                                    cell.textLabel.text = weekArray[indexPath.row]
                 }else{                                  //日付表示
-                        cell.backgroundColor = UIColor.red
+                        cell.backgroundColor = UIColor.white
                    cell.textLabel.text = datemanager.daysArray[indexPath.row]  //Index番号から表示する日を求める
                 }
                 return cell
@@ -110,6 +100,9 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         
         @IBAction func backButton(_ sender: Any) {
      monthCounter = monthCounter - 1
+      commonSettingMoveMonth()
+        
+
         }
         
         
@@ -117,11 +110,13 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
                 datemanager.daysArray = nil
                 let moveDate = MoveMonthRequest(monthCounter)
                 datemanager.numberOfWeeks(moveDate.year, moveDate.month)
+                datemanager.dateManager(moveDate.year,moveDate.month)
+                if monthCounter != 0{
+                        headTitle.text = "\(String(moveDate.year))年\(String(moveDate.month))月"
+                }else{
+                        headTitle.text = "\(String(datemanager.year))年\(String(datemanager.month))月\(String(datemanager.day))日"
+                }
                 collectionView.reloadData()
-        
-        
-        
-        
         
         
         }

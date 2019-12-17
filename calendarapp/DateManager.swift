@@ -25,22 +25,6 @@ class DateManager: NSObject {
         }
 
         
-        enum MoveMonth {
-                struct Request {
-                        
-                        var year: Int
-                        var month: Int
-                        
-                        init(_ monthCounter: Int) {
-                                let calendar = Calendar(identifier: .gregorian)
-                                let date = calendar.date(byAdding: .month, value: monthCounter, to: Date())
-                                let newDate = calendar.dateComponents([.year, .month], from: date!)
-                                year = newDate.year!
-                                month = newDate.month!
-                        }
-                }
-        }
-        
        let isLeapYear = { (year: Int) in year % 400 == 0 || (year % 4 == 0 && year % 100 != 0) }  //うるう年の条件（クロージャー）
         
        let zellerCongruence = { (year: Int, month: Int, day: Int) in (year + year/4 - year/100 + year/400 + (13 * month + 8)/5 + day) % 7 }   //曜日の計算。計算結果は0〜6の整数値
