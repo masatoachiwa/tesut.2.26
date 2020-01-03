@@ -10,6 +10,7 @@ import UIKit
 
 class ImageViewController: UIViewController {
 
+      
         
         @IBOutlet var jkImage: UIImageView!
         
@@ -20,9 +21,17 @@ class ImageViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+ 
+       
+        }
+        override func viewWillAppear(_ animated: Bool) {
+                speechText.text = TalkManager.shared.numberOfLabel()
+   
+                
+        }
 
-    
-    }
-    
-
+   
 }
+
+
+

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout  {
+class CallenderViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout  {
       
         
         
@@ -109,7 +109,7 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         func commonSettingMoveMonth(){
                 datemanager.daysArray = nil
                 let moveDate = MoveMonthRequest(monthCounter)
-                datemanager.numberOfWeeks(moveDate.year, moveDate.month)
+              //  datemanager.numberOfWeeks(moveDate.year, moveDate.month) なしでいけた？
                 datemanager.dateManager(moveDate.year,moveDate.month)
                 if monthCounter != 0{
                         headTitle.text = "\(String(moveDate.year))年\(String(moveDate.month))月"

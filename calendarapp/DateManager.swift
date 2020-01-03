@@ -9,14 +9,14 @@
 import UIKit
 
 
-class DateManager: NSObject {
+class DateManager {
       
       var year: Int
       var month: Int
       var day: Int
         var daysArray: [String]! = []
         
-        override init() {
+         init() {
         let calendar = Calendar(identifier: .gregorian)
         let date = calendar.dateComponents([.year, .month, .day], from: Date())
         year = date.year!

@@ -13,7 +13,7 @@
         <!--Item-->
         <scene sceneID="wq9-CM-uf0">
             <objects>
-                <viewController id="N5T-Gl-eeh" sceneMemberID="viewController">
+                <viewController id="N5T-Gl-eeh" customClass="TopViewController" customModule="calendarapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="995-vX-CFe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,45 +26,62 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="勉強を1時間する" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="18" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea4-gH-Vk0">
-                                <rect key="frame" x="58" y="241" width="298" height="61"/>
+                                <rect key="frame" x="58" y="243" width="298" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MlC-ST-EN0">
-                                <rect key="frame" x="87" y="619" width="219" height="45"/>
+                                <rect key="frame" x="136" y="494" width="123" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="達成できなかった"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wa8-SS-Rw3">
-                                <rect key="frame" x="114" y="717" width="165" height="45"/>
+                                <rect key="frame" x="152" y="569" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="本日はお休み"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XS2-N0-I4W">
-                                <rect key="frame" x="88" y="369" width="218" height="128"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4d-cq-Siq">
+                                <rect key="frame" x="87" y="312" width="219" height="89"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="かなり達成できた"/>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jkd-Pe-snm">
-                                <rect key="frame" x="101" y="483" width="178" height="128"/>
+                                <rect key="frame" x="118" y="380" width="161" height="91"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="達成できた"/>
+                                <connections>
+                                    <action selector="goodButton:" destination="N5T-Gl-eeh" eventType="touchUpInside" id="t5k-i2-hNj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSP-bz-fTq">
+                                <rect key="frame" x="167" y="708" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="リセット"/>
+                                <connections>
+                                    <action selector="rest:" destination="N5T-Gl-eeh" eventType="touchUpInside" id="icj-Vl-rfM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="eSX-bc-Ds7"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="2SG-vo-dFw"/>
+                    <connections>
+                        <outlet property="doLabel" destination="ea4-gH-Vk0" id="clA-AU-cJg"/>
+                        <outlet property="kariLabel" destination="b4d-cq-Siq" id="uwu-y0-BZV"/>
+                        <outlet property="yearLabel" destination="vRf-k5-bds" id="SIo-hE-B1q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HNi-nd-7JY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1410" y="-313"/>
+            <point key="canvasLocation" x="-1410.144927536232" y="-313.39285714285711"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="iQf-d3-JRU">
@@ -89,7 +106,7 @@
         <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="calendarapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CallenderViewController" customModule="calendarapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="144.92753623188406" y="-313.39285714285711"/>
+            <point key="canvasLocation" x="-468" y="-313"/>
         </scene>
         <!--Item-->
         <scene sceneID="DYc-j0-cnI">
@@ -220,22 +237,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rDF-LR-x9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1410" y="812"/>
+            <point key="canvasLocation" x="-1410" y="372"/>
         </scene>
         <!--Item-->
         <scene sceneID="HcI-ue-StF">
             <objects>
-                <viewController id="lTS-4W-tcp" sceneMemberID="viewController">
+                <viewController id="lTS-4W-tcp" customClass="ImageViewController" customModule="calendarapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4nL-3S-ttL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="m7i-QS-dz4">
-                                <rect key="frame" x="0.0" y="60" width="414" height="640"/>
+                                <rect key="frame" x="0.0" y="60" width="414" height="465"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="最近頑張っているみたいだね！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubs-Uc-1Ou">
-                                <rect key="frame" x="0.0" y="628" width="414" height="185"/>
+                                <rect key="frame" x="-29" y="468" width="414" height="185"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -246,10 +263,14 @@
                         <viewLayoutGuide key="safeArea" id="znG-Wb-QBV"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="QQB-G6-f97"/>
+                    <connections>
+                        <outlet property="jkImage" destination="m7i-QS-dz4" id="iUM-zN-K0E"/>
+                        <outlet property="speechText" destination="ubs-Uc-1Ou" id="J7m-4s-gQi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tso-hK-cif" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="144.92753623188406" y="801.5625"/>
+            <point key="canvasLocation" x="-468.11594202898556" y="371.65178571428572"/>
         </scene>
     </scenes>
     <resources>
