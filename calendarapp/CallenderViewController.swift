@@ -39,7 +39,7 @@ class CallenderViewController: UIViewController,UICollectionViewDataSource, UICo
         let weekArray = ["日","月","火","水","木","金","土",]
         let numOfDays = 7
         var monthCounter = 0
-        
+       
         
         override func viewDidLoad() {
                 super.viewDidLoad()
@@ -51,6 +51,9 @@ class CallenderViewController: UIViewController,UICollectionViewDataSource, UICo
                 // レイアウトを調整
                 let layout = UICollectionViewFlowLayout() //UICollectionVIewLayoutの調整。Cellの大きさを動的な変更ができない
                 collectionView.collectionViewLayout = layout
+                
+                
+                
         }
         
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {  //セルの数
@@ -59,18 +62,26 @@ class CallenderViewController: UIViewController,UICollectionViewDataSource, UICo
                 }
         //データを返すメソッド
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+                
+                
                 //コレクションビューから識別子「CalendarCell」のセルを取得する/
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CalendarCell
+                let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CalendarCell
                 if(indexPath.section == 0){             //曜日表示
                         cell.backgroundColor = UIColor.white
-                                   cell.textLabel.text = weekArray[indexPath.row]
+                                   cell.textLabel.text = weekArray[indexPath.row] //配列を１行目の１番目から表示
                 }else{                                  //日付表示
+                        
+                        
                         cell.backgroundColor = UIColor.white
-                   cell.textLabel.text = datemanager.daysArray[indexPath.row]  //Index番号から表示する日を求める
+                      
+                        cell.textLabel.text = datemanager.daysArray[indexPath.row]  //Index番号から表示する日を求める.getToday()
+                        cell.getToday(year: datemanager.year, month: datemanager.month,day: datemanager.day)
                 }
                 return cell
         }
 
+
+        
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
                 //横方向のスペース調整
                 let horizontalSpace : CGFloat = 2
