@@ -24,6 +24,9 @@ class DateManager {
         day = date.day!
         }
 
+        // 現在タイトルに表示されている年月を宣言
+        var nowYear: Int = 0
+        var nowMonth: Int = 0
         
        let isLeapYear = { (year: Int) in year % 400 == 0 || (year % 4 == 0 && year % 100 != 0) }  //うるう年の条件（クロージャー）
         
@@ -93,5 +96,6 @@ class DateManager {
                 }
                 return daysArray
         }
+
 
 }

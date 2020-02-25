@@ -57,39 +57,52 @@ class TalkManager {
         }
         var userDefaults = UserDefaults.standard  // UserDefaultsの定義
       
-        var dayArray: [String] = []
+        var dayArray: [String] = ["りんご"]
+        var baddayArray: [String] = ["ごりら"]
+        var restdayArray: [String] = ["らっぱ"]
         
-        func date(abcd:String){
-//                let date = Date()
-//                let dateFormatter = DateFormatter()
-//                dateFormatter.dateFormat = "yyyyMMdd"
-//                
-                
-          
-            
+        func date(abcd:String){ //yymmddの追加と値の保存
+
                 dayArray.append(abcd)
                 
                 let defaults = UserDefaults.standard
                defaults.set(dayArray, forKey: "dayArray")
                 
-         //       defaults.array(forKey: "dayArray") as! [String]
-                
-              
-                
-                
-                
-                
-                
-                
 
+        }
+        func badDate(abcd:String){ //yymmddの追加と値の保存
+                
+                baddayArray.append(abcd)
+                
+                let defaults = UserDefaults.standard
+                defaults.set(baddayArray, forKey: "baddayArray")
+                
+               
+        }
+        func restDate(abcd:String){ //yymmddの追加と値の保存
+                
+                 restdayArray.append(abcd)
+                
+                let defaults = UserDefaults.standard
+                defaults.set(restdayArray, forKey: "restdayArray")
+                
         }
         
         
+        func remove(){
+                dayArray.removeAll() //配列空にする
+                let defaults = UserDefaults.standard
+                defaults.set(dayArray, forKey: "dayArray")
+                baddayArray.removeAll() //配列空にする
+                let baddefaults = UserDefaults.standard
+                baddefaults.set(baddayArray, forKey: "baddayArray")
+                restdayArray.removeAll() //配列空にする
+                let restdefaults = UserDefaults.standard
+                restdefaults.set(restdayArray, forKey: "restdayArray")
+                
+        }
         
-        
-        
-        
-        
+
         func resetPoint() {
                 point = 0
                 badPoint = 0

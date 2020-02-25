@@ -28,6 +28,7 @@ class CallenderViewController: UIViewController,UICollectionViewDataSource, UICo
 
         
         
+        @IBOutlet var correlction: UICollectionView!
         
         @IBOutlet var headTitle: UILabel!
         
@@ -39,14 +40,26 @@ class CallenderViewController: UIViewController,UICollectionViewDataSource, UICo
         let weekArray = ["日","月","火","水","木","金","土",]
         let numOfDays = 7
         var monthCounter = 0
+        
+        // 現在タイトルに表示されている年月を宣言
+        var nowYear: Int = 0
+        var nowMonth: Int = 0
        
         
         override func viewDidLoad() {
                 super.viewDidLoad()
                 
-               datemanager.dateManager(datemanager.year,datemanager.month)
+              // correlction.reloadData()
+               
+               datemanager.dateManager(datemanager.year,datemanager.month) //いらないはず
             
                 headTitle.text = "\(String(datemanager.year))年\(String(datemanager.month))月\(String(datemanager.day))日"
+                
+                // タイトルを更新するタイミングで、nowYearとnowMonthを更新
+                updateYearAndMonth(year: datemanager.year, month: datemanager.month)
+                
+                
+
                 
                 // レイアウトを調整
                 let layout = UICollectionViewFlowLayout() //UICollectionVIewLayoutの調整。Cellの大きさを動的な変更ができない
@@ -69,13 +82,24 @@ class CallenderViewController: UIViewController,UICollectionViewDataSource, UICo
                 if(indexPath.section == 0){             //曜日表示
                         cell.backgroundColor = UIColor.white
                                    cell.textLabel.text = weekArray[indexPath.row] //配列を１行目の１番目から表示
+                        
                 }else{                                  //日付表示
                         
                         
                         cell.backgroundColor = UIColor.white
                       
-                        cell.textLabel.text = datemanager.daysArray[indexPath.row]  //Index番号から表示する日を求める.getToday()
-                        cell.getToday(year: datemanager.year, month: datemanager.month,day: datemanager.day)
+                        cell.textLabel.text = datemanager.daysArray[indexPath.row]
+                        //Index番号から表示する日を求める.getToday()
+                       // cell.getToday(year: datemanager.year, month: datemanager.month,day: datemanager.day)
+                        cell.getToday(year: nowYear, month: nowMonth,day: datemanager.day)
+                        
+                       cell.cellImage.image = UIImage(named: "mark_maru")
+                        
+                        cell.cellImage1.image = UIImage(named: "mark_batu")
+                        cell.cellImage2.image = UIImage(named: "mark_slash")
+                        
+                       
+                        
                 }
                 return cell
         }
@@ -120,17 +144,41 @@ class CallenderViewController: UIViewController,UICollectionViewDataSource, UICo
         func commonSettingMoveMonth(){
                 datemanager.daysArray = nil
                 let moveDate = MoveMonthRequest(monthCounter)
-              //  datemanager.numberOfWeeks(moveDate.year, moveDate.month) なしでいけた？
+             
                 datemanager.dateManager(moveDate.year,moveDate.month)
                 if monthCounter != 0{
                         headTitle.text = "\(String(moveDate.year))年\(String(moveDate.month))月"
+                        //更新
+                        updateYearAndMonth(year: moveDate.year, month: moveDate.month)
                 }else{
                         headTitle.text = "\(String(datemanager.year))年\(String(datemanager.month))月\(String(datemanager.day))日"
+                        // 更新
+                        updateYearAndMonth(year: datemanager.year, month: datemanager.month)
                 }
                 collectionView.reloadData()
         
         
         }
+        // 年月を更新するようの関数を用意
+        func updateYearAndMonth(year: Int, month: Int) {
+                nowYear = year
+                nowMonth = month
+        }
+    
+        // 画面に表示される直前に呼ばれます。
+        // viewDidLoadとは異なり毎回呼び出されます。
+        override func viewWillAppear(_ animated: Bool) {
+                super.viewWillAppear(animated)
+                 correlction.reloadData()
+        }
+        
+        
+        
+        
+        
+        
+        
+        
         
 }
 
